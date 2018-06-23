@@ -1,0 +1,127 @@
+body {
+    background-color: #518f45;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family:Verdana;
+}
+
+img.logo {
+    height: 110px;
+    margin: 10px 0 0 10px;
+}
+
+img.basket {
+    height: 150px;
+    margin: 20px 0 0 50px;
+}
+
+fieldset.log{ border: solid 3px #518f45;
+        height: 100px;
+        width: 446px;
+        border-radius: 3px;
+        
+   }
+
+fieldset.product{ border: solid 3px #518f45;
+    height: 300px;
+    width: 200px;
+    border-radius: 3px;
+    float: left;
+    margin: 17px 0 0 17px; 
+    
+}
+
+a { color:#648ea5; }
+a:hover  {color:#2e4552;}
+
+
+.up {
+    height: 130px;
+    width: 1000px;
+    border-radius: 3px;
+    float: left;
+    background-color: #d4f0d3;
+}
+
+.loginform {
+    height: 130px;
+    width: 490px;
+    border-radius: 3px;
+    float: left;
+    margin-left: 10px;
+    background-color: #d4f0d3;
+}
+
+.centerside {
+    height: 795px;
+    width: 1500px;
+    border-radius: 3px;
+
+    background-color: #d4f0d3;
+    float: left;
+    margin: 10px 0 0 0px;
+}
+
+.down {
+    height: 195px;
+    width: 1500px;
+    border-radius: 3px;
+
+    background-color: #d4f0d3;
+    float: left;
+    margin: 10px 0 0 0px;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+ul.menu > li {
+    float: right;
+    position: relative;
+}
+ul.menu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: #518f45;
+    text-decoration: none;
+}
+ul.menu > li > a:hover {
+    background-color: rgb(27, 65, 90);
+}
+ul.submenu {
+    display: none;
+    position: absolute;
+    width: 120px;
+    top: 37px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #518f45;
+}
+ul.submenu > li {
+    display: block;
+}
+ul.submenu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: #518f45;
+    text-decoration: none;
+}
+ul.submenu > li > a:hover {
+    text-decoration: underline;
+}
+ul.menu > li:hover > ul.submenu {
+    display: block;
+}
+
