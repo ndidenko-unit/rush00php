@@ -1,16 +1,16 @@
-<?php
-    session_start();
-    $_SESSION['msgerrornodata'] = ""; 
-?>
 
-<html lang="en">
+<?php
+session_start();
+if ($_SESSION['id_edit']){$_SESSION['id_edit'] = '';}
+?>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Guns.com</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <center>
+    <center/>
     <div class="up">
     <img class="logo" src="https://cs9.pikabu.ru/images/previews_comm/2017-03_6/14908654351521703.png" alt="logo" title="Logo" align="left">
     <h1><a href="index.php">Guns.com</a></h1>
@@ -24,7 +24,7 @@
             <li><a href="output.php?value=Винтовки" name='Винтовки'>Винтовки</a>
             </li>
         </ul>
-    </div>
+</div>
     <div class="loginform">
     <form name = "index.php" method = "POST" action = "index.php">
             <fieldset class="log">
@@ -53,70 +53,49 @@
             </fieldset>
     </div>
     <div class="centerside"><br><br>
-            <h1>Регистрация:</h1><br><br>
-            <fieldset class="newpass">
-            <form action="registration.php" method="post"><br>
-            <div class="left_newlog">
-            Логин: <br><br>
-            Пароль: <br><br>
-            Повторно: <br><br><br>
-            <input type="submit" name="submit" value="Accept">
-            </div>
-            <div class="right_newlog">
-            <input type = "text" name = "login"><br><br>
-            <input type = "password" name = "password"><br><br>
-            <input type = "password" name = "conf_pass"><br><br><br>
-            <input type="submit" name = "back" value="Go back">
+    <?php
+        if ($_SESSION[login] === 'admin') {
+        include "str_db.php";
+        session_start();
+        $conn = mysqli_connect('localhost', 'root', '5956861', "shop");
+        $sql = "SELECT * FROM tovars";
+        $res = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($res))
+        {
+            echo '<fieldset class="tovar">';
+            echo "Название: $row[product]<br>";
+            echo "Категория: $row[category]<br> ";
+            echo "Цена: $row[price]<br>";
+            echo "<img width='70%' src='$row[photo]'><form action='del.php' 
+            method='get'><br><input type='submit' name='$row[id]' value='Удалить'></form> ";
+            echo "<a href='editing.php?value=$row[id]'>Редактировать</a>";
+            echo '</fieldset>';
+        }
+        if ($_GET['back'] && $_GET['back'] === "Вернуться назад"){header("Location: admin.php");} }
+?>        
+    </div>
+    <?php if ($_SESSION[login] === 'admin') { ?>
+        <form action="edit.php" method="get">
+        
+                <input type="submit" name="back" value="Вернуться назад">
+        
+            </form>
 
-        </div>
+    <?php } ?>
+
+        
 
         </form>
 
 
         </fieldset>
     
-
-
-    <?php
-    include "error.php";
-    include "check_login.php";
-    $login = $_POST['login'];
-    $password = hash('whirlpool', $_POST['password']);
-
-    if ($_POST['submit'] && $_POST['submit'] === "Accept")
-    {
-        if ($_POST['login'] && $_POST['password'] && $_POST['conf_pass'])
-        {
-            $_POST['password'] != $_POST['conf_pass'] ? error("Passwords do not match") : 0;
-            strlen($_POST['password']) < 5 ? error("Short password(min 6)") : 0;
-            $conn = mysqli_connect('localhost', 'root', '5956861', "shop");
-            if (!$conn)
-            {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            $sql2 = "SELECT login FROM users";
-            if (!check_login($sql2, $conn, $login)){die("User exist");}
-            $sql = "INSERT INTO users (id, login, password, idp)
-            VALUES (id, '$login', '$password', -1)";
-            if (mysqli_query($conn, $sql))
-            {
-                echo "Congratulations, you now registered!";
-            }
-            else
-            {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-            mysqli_close($conn);
-        }
-        else {die("Empty fields");}
-    }
-    if ($_POST['back'] && $_POST['back'] === "Go back")
-    {
-        header("Location: index.php");
-    }
-?>    
+   
 
     </div>
 </body>
-</html>
 
+
+
+
+</html>

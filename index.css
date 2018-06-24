@@ -12,8 +12,8 @@ img.logo {
 }
 
 img.basket {
-    height: 150px;
-    margin: 20px 0 0 50px;
+    height: 120px;
+    margin: 20px 0 20 0px;
 }
 
 fieldset.log{ border: solid 3px #518f45;
@@ -29,7 +29,24 @@ fieldset.newpass{ border: solid 3px #518f45;
     
 }
 
+fieldset.small{ border: solid 3px #518f45;
+    height: 180px;
+    width: 446px;
+    border-radius: 3px;
+    
+}
+
 fieldset.product{ border: solid 3px #518f45;
+    height: 100px;
+    width: 80px;
+    font-size: 10px;
+    border-radius: 2px;
+    float: left;
+    margin: 7px 0px 7px 7px; 
+    
+}
+
+fieldset.tovar{ border: solid 3px #518f45;
     height: 300px;
     width: 200px;
     border-radius: 3px;
@@ -37,6 +54,7 @@ fieldset.product{ border: solid 3px #518f45;
     margin: 17px 0px 10px 17px; 
     
 }
+
 
 a { color:#648ea5; }
 a:hover  {color:#2e4552;}
@@ -73,7 +91,8 @@ a:hover  {color:#2e4552;}
 
 
 .down {
-    height: 195px;
+    min-height: 115px;
+    height: auto;
     width: 1500px;
     border-radius: 3px;
 
@@ -117,19 +136,7 @@ ul.submenu {
     background-color: white;
     border: 1px solid #518f45;
 }
-ul.submenu > li {
-    display: block;
-}
-ul.submenu > li > a {
-    display: block;
-    padding: 10px;
-    color: white;
-    background-color: #518f45;
-    text-decoration: none;
-}
-ul.submenu > li > a:hover {
-    text-decoration: underline;
-}
+
 ul.menu > li:hover > ul.submenu {
     display: block;
 }
