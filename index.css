@@ -19,22 +19,30 @@ img.basket {
 fieldset.log{ border: solid 3px #518f45;
         height: 100px;
         width: 446px;
-        border-radius: 3px;
-        
+        border-radius: 3px;   
    }
+
+fieldset.newpass{ border: solid 3px #518f45;
+    height: 180px;
+    width: 446px;
+    border-radius: 3px;
+    
+}
 
 fieldset.product{ border: solid 3px #518f45;
     height: 300px;
     width: 200px;
     border-radius: 3px;
     float: left;
-    margin: 17px 0 0 17px; 
+    margin: 17px 0px 10px 17px; 
     
 }
 
 a { color:#648ea5; }
 a:hover  {color:#2e4552;}
 
+.left_newlog { width: 220px; float: left; }
+.right_newlog { width: 150px; float: left; }
 
 .up {
     height: 130px;
@@ -54,14 +62,15 @@ a:hover  {color:#2e4552;}
 }
 
 .centerside {
-    height: 795px;
+    min-height: 795px;
+    height: auto;
     width: 1500px;
     border-radius: 3px;
-
     background-color: #d4f0d3;
     float: left;
     margin: 10px 0 0 0px;
 }
+
 
 .down {
     height: 195px;
